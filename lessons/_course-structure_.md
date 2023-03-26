@@ -34,4 +34,4 @@ Para cada exercício, tem um vídeo meu resolvedo-o, caso tenha dúvidas; prefir
 
 ___
 
-Agora que você já conhece a estrutura do curso, vá para a seção de [pré-requisitos](./_pre-requirements_.md).
+Agora que você já conhece a estrutura do curso, vá para a seção de [pré-requisitos]( ./_pre-requirements_.md ).
