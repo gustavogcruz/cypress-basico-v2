@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('PreencheFormulario', () => {
+    cy.get('[id=firstName]').type('Théo')
+    cy.get('[id=lastName]').type('Cruz')
+    cy.get('[id=email]').type('theocruz@gmail.com')
+    cy.get('[id=open-text-area]').type('Nada! Sou feliz com meu Papai',{delay: 15})
+    cy.get('button').should('have.class', 'button').click()
+    cy.get('span.success').should('be.visible')
+})
