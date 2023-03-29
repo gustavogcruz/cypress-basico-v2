@@ -25,10 +25,12 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('PreencheFormulario', () => {
-    cy.get('[id=firstName]').type('Théo')
-    cy.get('[id=lastName]').type('Cruz')
-    cy.get('[id=email]').type('theocruz@gmail.com')
-    cy.get('[id=open-text-area]').type('Nada! Sou feliz com meu Papai',{delay: 15})
-    cy.get('button').should('have.class', 'button').click()
-    cy.get('span.success').should('be.visible')
+
+    const longText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt exercitationem quaerat voluptatem omnis, asperiores fugit voluptate animi id, culpa laudantium doloribus cupiditate ex debitis. Ullam quisquam nesciunt eos eum vero a itaque accusamus ratione, assumenda perspiciatis enim earum deserunt voluptates maxime quasi delectus consectetur modi at necessitatibus suscipit, laborum ducimus.1'
+    cy.get('#firstName').type('Théo')
+    cy.get('#lastName').type('Cruz')
+    cy.get('#email').type('theocruz@gmail.com')
+    cy.get('#open-text-area').type(longText,{delay: 10})
+    cy.get('button[type="submit"').click() // tag button que possui o type igual a submit. No caso de uso da classe button, seria '.button'
+    cy.get('.success').should('be.visible')
 })
