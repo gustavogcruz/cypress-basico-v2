@@ -22,7 +22,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#lastName').type('Cruz')
         cy.get('#email').type('theocruz@gmail.com')
         cy.get('#open-text-area').type(longText,{delay: 15}) // delay default é 10
-        cy.get('button[type="submit"').click()
+        cy.get('button[type="submit"').click()  // tag button que possui o type igual a submit. No caso de uso da classe button, seria '.button'
         cy.get('.success').should('be.visible')
   
     })
@@ -32,8 +32,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#firstName').type('Théo') // # - busca pelo ID
         cy.get('#lastName').type('Cruz')
         cy.get('#email').type('theocruzgmail.com')
-        cy.get('#open-text-area').type('Feliz em ficar com papai!',{delay: 15}) // delay default é 10
-        cy.get('button[type="submit"').click()
+        cy.get('#open-text-area').type('Feliz em ficar com papai!',{delay: 30}) // delay default é 10
+        cy.contains('button', 'Enviar').click()
         cy.get('.error').should('be.visible')
   
     })
@@ -88,9 +88,9 @@ describe('Central de Atendimento ao Cliente TAT', function() {
 
     })
 
-    it.only('envia o formuário com sucesso usando um comando customizado', function() {
+    it('envia o formuário com sucesso usando um comando customizado', function() {
 
-        cy.PreencheFormulario()
+        cy.PreencheCamposObrigatoriosEnviaFormulario()
         
     })
 

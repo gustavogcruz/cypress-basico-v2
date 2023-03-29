@@ -24,13 +24,13 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('PreencheFormulario', () => {
+Cypress.Commands.add('PreencheCamposObrigatoriosEnviaFormulario', () => {
 
     const longText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt exercitationem quaerat voluptatem omnis, asperiores fugit voluptate animi id, culpa laudantium doloribus cupiditate ex debitis. Ullam quisquam nesciunt eos eum vero a itaque accusamus ratione, assumenda perspiciatis enim earum deserunt voluptates maxime quasi delectus consectetur modi at necessitatibus suscipit, laborum ducimus.1'
     cy.get('#firstName').type('Théo')
     cy.get('#lastName').type('Cruz')
     cy.get('#email').type('theocruz@gmail.com')
     cy.get('#open-text-area').type(longText,{delay: 10})
-    cy.get('button[type="submit"').click() // tag button que possui o type igual a submit. No caso de uso da classe button, seria '.button'
+    cy.get('button[type="submit"').click()
     cy.get('.success').should('be.visible')
 })
