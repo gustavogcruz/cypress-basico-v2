@@ -1,3 +1,5 @@
+/// <reference types="Cypress" />
+
 describe('CAC TAT - Política de privacidade', () => {
 
     beforeEach(() => {
