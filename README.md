@@ -1,6 +1,6 @@
 # Central de Atendimento ao Cliente TAT
 
-Projeto de testes baseado no curso Cypress - Básico - v2 de https://github.com/gustavogcruz/cypress-basico-v2
+Projeto de testes baseado no curso Cypress - Básico - v2 de https://github.com/wlsf82/cypress-basico-v2
 
 ## Pre-requirements
 It is required to have Node.js and npm installed to run this project.
