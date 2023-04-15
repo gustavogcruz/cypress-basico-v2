@@ -14,7 +14,7 @@ it('testa a página da política de privacidade de forma independente 1', () => 
 
 it.only('testa a página da política de privacidade de forma independente 2', () => {
     cy.get('.privacy')
-    cy.contains('Não salvamo dados submetidos no formulário da aplicação CAC TAT.')
+    cy.contains('Não salvamos dados submetidos no formulário da aplicação CAC TAT.')
     .should('be.visible') 
 })
 
