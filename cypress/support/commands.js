@@ -25,12 +25,24 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.Commands.add('PreencheCamposObrigatoriosEnviaFormulario', () => {
-
-    const longText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt exercitationem quaerat voluptatem omnis, asperiores fugit voluptate animi id, culpa laudantium doloribus cupiditate ex debitis. Ullam quisquam nesciunt eos eum vero a itaque accusamus ratione, assumenda perspiciatis enim earum deserunt voluptates maxime quasi delectus consectetur modi at necessitatibus suscipit, laborum ducimus.1'
-    cy.get('#firstName').type('Théo')
-    cy.get('#lastName').type('Cruz')
-    cy.get('#email').type('theocruz@gmail.com')
-    cy.get('#open-text-area').type(longText,{delay: 10})
-    cy.get('button[type="submit"').click()
-    cy.get('.success').should('be.visible')
+    cy.clock()
+    const shortText = Cypress._.repeat('Feliz em ficar com papai! ',5) //repedição do texto da const shortText por 5 vezes
+    cy.get('#firstName')
+    .type('Théo')
+    cy.get('#lastName')
+    .type('Cruz')
+    cy.get('#email')
+    .type('theocruz@gmail.com')
+    cy.get('#open-text-area')
+    //.type(shortText,{delay: 10})
+    .invoke('val', shortText)
+    .should('have.value', shortText)
+    cy.get('button[type="submit"')
+    .click()
+    //cy.get('.success')
+    cy.contains('.success', 'Mensagem enviada com sucesso')
+    .should('be.visible')
+    .tick(3000)
+    cy.contains('.success', 'Mensagem enviada com sucesso')
+    .should('not.be.visible')
 })
