@@ -3,7 +3,7 @@
 //it.only - irá executar somente o teste com o método.
 //it.skip - ignora o teste
 
-describe('Central de Atendimento ao Cliente TAT', () => {
+describe('CAC    TAT', () => {
 
     const tresMiliSegundos = 3000
 
@@ -126,7 +126,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         .should('not.be.visible')
     })
 
-    it.only('envia o formuário com sucesso usando um comando customizado', function() {
+    it('envia o formuário com sucesso usando um comando customizado', function() {
 
         cy.PreencheCamposObrigatoriosEnviaFormulario()
         
@@ -151,7 +151,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
     })
 
-    Cypress._.times(10, () => {    
+    Cypress._.times(10, () => {    // repete a função por N indicado no primeiro argumento da função .times()
         
         it('seleciona um produto de forma aleatória',  () => {
 
@@ -271,6 +271,38 @@ describe('Central de Atendimento ao Cliente TAT', () => {
         .click()
         cy.contains('Não salvamos dados submetidos no formulário da aplicação CAC TAT.')
         .should('be.visible')       
+
+    })
+
+    // invoke('show'), invoke('hide')
+
+    it('exibe e esconde as mensagens de sucesso e erro usando o .invoke', () => {
+        cy.get('.success')
+          .should('not.be.visible')
+          .invoke('show')
+          .should('be.visible')
+          .and('contain', 'Mensagem enviada com sucesso.')
+          .invoke('hide')
+          .should('not.be.visible')
+        cy.get('.error')
+          .should('not.be.visible')
+          .invoke('show')
+          .should('be.visible')
+          .and('contain', 'Valide os campos obrigatórios!')
+          .invoke('hide')
+          .should('not.be.visible')
+      })
+
+    it('encontra o gato escondido', () => {
+        cy.get('#cat')
+        .should('not.be.visible')
+        .invoke('show')
+        .should('be.visible')
+        /*cy.get('#title')
+        .invoke('text', 'GALO FORTE E VINGADOR')
+        cy.get('#subtitle')
+        .invoke('text', 'CAMPEÃO DOS CAMPEÕES')*/
+        
 
     })
 

@@ -26,17 +26,19 @@
 
 Cypress.Commands.add('PreencheCamposObrigatoriosEnviaFormulario', () => {
     cy.clock()
-    const shortText = Cypress._.repeat('Feliz em ficar com papai! ',5) //repedição do texto da const shortText por 5 vezes
+    const shortText = Cypress._.repeat('Feliz em ficar com papai! ',5) //repetição do texto da const shortText por 5 vezes
     cy.get('#firstName')
     .type('Théo')
     cy.get('#lastName')
     .type('Cruz')
     cy.get('#email')
     .type('theocruz@gmail.com')
+
     cy.get('#open-text-area')
     //.type(shortText,{delay: 10})
     .invoke('val', shortText)
     .should('have.value', shortText)
+
     cy.get('button[type="submit"')
     .click()
     //cy.get('.success')
